@@ -10,10 +10,11 @@ config_version=3
 
 [application]
 
-config/name="src"
+config/name="Untitled Lewd Game"
+run/main_scene="res://game.tscn"
 config/icon="res://icon.png"
 
 [rendering]
 
 environment/default_environment="res://default_env.tres"
-environment/crash_handler/message="Please include this when reporting the bug on https://github.com/godotengine/godot/issues"
+environment/crash_handler/message="Something went wrong! Please report this on https://ttio.itch.io and include your log."
