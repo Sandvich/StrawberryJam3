@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Conductor.gd" type="Script" id=1]
+[ext_resource path="res://assets/RaveParty.wav" type="AudioStream" id=1]
+[ext_resource path="res://Conductor.gd" type="Script" id=2]
 
 [node name="Background" type="TextureRect" index="0"]
 
@@ -21,13 +22,13 @@ _sections_unfolded = [ "Rect" ]
 
 [node name="Conductor" type="AudioStreamPlayer" parent="." index="0"]
 
-stream = null
+stream = ExtResource( 1 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 
 [node name="StartTimer" type="Timer" parent="Conductor" index="0"]
 

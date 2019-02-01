@@ -11,4 +11,4 @@ func _process(delta):
 
 func start():
 	set_process(true)
-	# play(0)
+	play(0)
