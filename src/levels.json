@@ -1,0 +1,12 @@
+{
+	"easy":[
+		[1, "left_deck_up"],
+		[2, "left_deck_down"],
+		[3, "left_deck_left"],
+		[4, "left_deck_right"],
+		[5, "right_deck_up"],
+		[6, "right_deck_down"],
+		[7, "right_deck_left"],
+		[8, "right_deck_right"]
+		]
+}
