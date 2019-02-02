@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/ConnectionII.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://assets/RaveParty.wav" type="AudioStream" id=2]
 [ext_resource path="res://Conductor.gd" type="Script" id=3]
+[ext_resource path="res://assets/deck.tres" type="SpriteFrames" id=4]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -35,10 +36,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 396.0
-margin_top = 266.0
-margin_right = 560.0
-margin_bottom = 330.0
+margin_left = 452.0
+margin_top = 284.0
+margin_right = 580.0
+margin_bottom = 332.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -74,6 +75,12 @@ process_mode = 1
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="Deck" type="AnimatedSprite" parent="Conductor" index="1"]
+
+position = Vector2( 511.978, 607.257 )
+frames = ExtResource( 4 )
+animation = "default"
 
 [connection signal="timeout" from="Conductor/StartTimer" to="Conductor" method="start" flags=6]
 

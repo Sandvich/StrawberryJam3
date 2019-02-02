@@ -28,4 +28,6 @@ func _process(delta):
 
 func start():
 	set_process(true)
+	var deck = get_node("Deck")
+	deck.play()
 	play(0)
