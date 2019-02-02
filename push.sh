@@ -15,8 +15,11 @@ cd $BUILD_DIR
 
 echo "Move executables to their directories"
 mv $FILENAME.x86_64 linux/
+cp $FILENAME.pck linux/
 mv $FILENAME.zip osx/
+cp $FILENAME.pck osx/
 mv $FILENAME.exe windows/
+mv $FILENAME.pck windows/
 
 echo "Set Linux to executable"
 chmod +x linux/$FILENAME.x86_64
