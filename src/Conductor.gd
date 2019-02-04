@@ -14,7 +14,7 @@ func _ready():
 	set_process(false)
 	label = get_parent().get_node("time")
 	scorelabel = get_parent().get_node("score")
-	spawner = get_parent().get_node("Spawner")
+	spawner = get_parent().get_node("Deck")
 	var file = File.new()
 	file.open("res://levels.json", file.READ)
 	var output = JSON.parse(file.get_as_text())
@@ -34,8 +34,7 @@ func _process(delta):
 
 func start():
 	set_process(true)
-	var deck = get_node("Deck")
-	deck.play()
+	spawner.play()
 	play(0)
 
 func change_score(scoredelta):

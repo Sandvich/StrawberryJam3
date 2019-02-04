@@ -1,10 +1,11 @@
-extends Node
+extends AnimatedSprite
 
 var key_map
 var valid_keys
 var promptClass
 
 func _ready():
+	set_process(true)
 	key_map = {
 		"left_deck_up":load("res://assets/w.png"),
 		"left_deck_left":load("res://assets/a.png"),
@@ -24,3 +25,8 @@ func prompt(key):
 		add_child(promptClass.new(key, key_map[key]))
 	else:
 		print("%s is not a valid prompt!" % key)
+
+#func _process(delta):
+#	# Called every frame. Delta is time since last frame.
+#	# Update game logic here.
+#	pass

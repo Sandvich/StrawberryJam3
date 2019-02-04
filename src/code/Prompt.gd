@@ -17,7 +17,7 @@ func _init(key, img):
 	._init()
 	image = img
 	keypress = key
-	self.position = Vector2(512, 100)
+	self.position = Vector2(0, -100)
 
 func _ready():
 	set_texture(image)
