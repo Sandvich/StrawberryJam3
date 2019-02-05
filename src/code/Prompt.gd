@@ -26,7 +26,7 @@ func _ready():
 	if key.begins_with("left"):
 		translate(Vector2(-125,-30))
 	elif key.begins_with("right"):
-		translate(Vector2(125, -30))
+		translate(Vector2(115, -30))
 	var timeout = Timer.new()
 	add_child(timeout)
 	timeout.wait_time = 2
