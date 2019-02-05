@@ -1,6 +1,7 @@
 extends AnimatedSprite
 
 var key_map
+var anim_file
 var valid_keys
 var promptClass
 
@@ -12,15 +13,16 @@ func _on_joy_connection_changed(device_id, connected):
 		if "DualShock" in name:
 			print("Switching to playstation mapping.")
 			key_map = {
-				"left_deck_up":load("res://assets/w.png"),
-				"left_deck_left":load("res://assets/a.png"),
-				"left_deck_down":load("res://assets/s.png"),
-				"left_deck_right":load("res://assets/d.png"),
+				"left_deck_up": "dpad_up",
+				"left_deck_down": "dpad_down",
+				"left_deck_left": "dpad_left",
+				"left_deck_right": "dpad_right",
 				"right_deck_left":load("res://assets/arrow_left.png"),
 				"right_deck_right":load("res://assets/arrow_right.png"),
 				"right_deck_up":load("res://assets/arrow_up.png"),
 				"right_deck_down":load("res://assets/arrow_down.png")
 			}
+			anim_file = load("res://assets/ps.tres")
 		elif "XBox" in name:
 			print("Switching to xbox mapping.")
 			key_map = {
@@ -66,6 +68,6 @@ func _ready():
 func prompt(key):
 	if key in valid_keys:
 		print("Spawn %s" % key)
-		add_child(promptClass.new(key, key_map[key]))
+		add_child(promptClass.new(key, anim_file, key_map[key]))
 	else:
 		print("%s is not a valid prompt!" % key)

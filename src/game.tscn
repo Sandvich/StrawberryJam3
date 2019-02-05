@@ -93,10 +93,11 @@ _sections_unfolded = [ "Grow Direction", "Rect" ]
 
 [node name="Deck" type="AnimatedSprite" parent="." index="2"]
 
-position = Vector2( 511.978, 607.257 )
+position = Vector2( 512, 470 )
 frames = ExtResource( 2 )
 animation = "default"
 script = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="Conductor" type="AudioStreamPlayer" parent="." index="3"]
 
