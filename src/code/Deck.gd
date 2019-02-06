@@ -11,7 +11,7 @@ func _on_joy_connection_changed(device_id, connected):
 		if "DualShock" in name:
 			print("Switching to playstation mapping.")
 			anim_file = load("res://anim/ps.tres")
-		elif "XBox" in name:
+		elif ("XInput" in name) or ("XBox" in name):
 			print("Switching to xbox mapping.")
 			anim_file = load("res://anim/xbox.tres")
 		else:
