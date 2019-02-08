@@ -1,12 +1,15 @@
 {
-	"easy":[
-		[0, "left_deck_up"],
-		[3, "left_deck_down"],
-		[6, "left_deck_left"],
-		[9, "left_deck_right"],
-		[12, "right_deck_up"],
-		[15, "right_deck_down"],
-		[18, "right_deck_left"],
-		[21, "right_deck_right"]
-		]
+	"easy":{
+		"level":[
+			[4, "left_deck_up"],
+			[12, "left_deck_down"],
+			[20, "left_deck_left"],
+			[28, "left_deck_right"],
+			[36, "right_deck_up"],
+			[44, "right_deck_down"],
+			[52, "right_deck_left"],
+			[60, "right_deck_right"]
+		],
+		"bpm":188
+	}
 }
