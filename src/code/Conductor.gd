@@ -32,7 +32,8 @@ func _process(delta):
 	time_decimal[1] = floor(fmod(time, 60))
 	label.set_text(time_string % time_decimal)
 	while leveldata.size() > 0 and current_beat >= leveldata[0][0]:
-		spawner.prompt(leveldata[0][1])
+		var timeout_beat = leveldata[0][2]*60/bpm
+		spawner.prompt(leveldata[0][1], timeout_beat)
 		leveldata.pop_front()
 
 func start():

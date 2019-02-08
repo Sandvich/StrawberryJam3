@@ -1,14 +1,14 @@
 {
 	"easy":{
 		"level":[
-			[4, "left_deck_up"],
-			[12, "left_deck_down"],
-			[20, "left_deck_left"],
-			[28, "left_deck_right"],
-			[36, "right_deck_up"],
-			[44, "right_deck_down"],
-			[52, "right_deck_left"],
-			[60, "right_deck_right"]
+			[4, "left_deck_up", 4],
+			[12, "left_deck_down", 4],
+			[20, "left_deck_left", 4],
+			[28, "left_deck_right", 4],
+			[36, "right_deck_up", 4],
+			[44, "right_deck_down", 4],
+			[52, "right_deck_left", 4],
+			[60, "right_deck_right", 4]
 		],
 		"bpm":188
 	}

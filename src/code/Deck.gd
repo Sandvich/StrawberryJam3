@@ -33,9 +33,9 @@ func _ready():
 				"right_deck_left", "right_deck_right", "right_deck_up", "right_deck_down"]
 	promptClass = load("res://code/Prompt.gd")
 
-func prompt(key):
+func prompt(key, timeout):
 	if key in valid_keys:
 		print("Spawn %s" % key)
-		add_child(promptClass.new(key, anim_file))
+		add_child(promptClass.new(key, anim_file, timeout))
 	else:
 		print("%s is not a valid prompt!" % key)
