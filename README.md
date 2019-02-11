@@ -5,7 +5,8 @@ The full game will feature both a practice (scored) mode, and a "live" mode wher
 
 ## Known Issues
 The aim is for all of these to be fixed before the end of the jam, but that might not happen.  
-* Currently all timing is done in seconds, not beats.
+* Many devices will detect as XBox controllers, despite not being them. This is unlikely to be fixable, as it is caused by limitations in XInput.
+* Rotation prompts are not yet implemented
 
 ## Attributions
 All code is written by [TTIO](https://ttio.itch.io/)
@@ -14,5 +15,5 @@ All code is written by [TTIO](https://ttio.itch.io/)
 Snabisch - [The Rave Party](https://opengameart.org/content/the-rave-party)  
 
 ### Art
-InanZen - [Key Icons](https://opengameart.org/content/arrow-keys-wsad-mouse-icon)  
+InanZen - [Key Icons](https://opengameart.org/content/arrow-keys-wsad-mouse-icon) (animated by [CIMCHE](https://cimche.itch.io/))
 Everything else by [CIMCHE](https://cimche.itch.io/)  
