@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=2]
+
+[ext_resource path="res://assets/analog_1.png" type="Texture" id=1]
+[ext_resource path="res://assets/analog_2.png" type="Texture" id=2]
+[ext_resource path="res://assets/analog_3.png" type="Texture" id=3]
+[ext_resource path="res://assets/analog_4.png" type="Texture" id=4]
+[ext_resource path="res://assets/analog_5.png" type="Texture" id=5]
+[ext_resource path="res://assets/analog_6.png" type="Texture" id=6]
+
+[resource]
+
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "anticlockwise",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "clockwise",
+"speed": 10.0
+} ]
+
