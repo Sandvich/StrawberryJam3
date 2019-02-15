@@ -53,7 +53,7 @@ func _ready():
 	valid_keys = key_positions.keys()
 	promptClass = load("res://code/Prompt.gd")
 
-func spawn(key, timeout, min_mash=null):
+func spawn(key, timeout):
 	if key in valid_keys:
 		print("Spawning %s" % key)
 		if key.ends_with("rotate"):

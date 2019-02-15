@@ -2,20 +2,15 @@
 	"easy":{
 		"level":[
 			[4, "left_deck_up", 4],
+			[4, "right_analog_rotate", 28],
 			[12, "left_deck_down", 4],
 			[20, "left_deck_left", 4],
 			[28, "left_deck_right", 4],
 			[36, "right_deck_up", 4],
+			[36, "left_analog_rotate", 28],
 			[44, "right_deck_down", 4],
 			[52, "right_deck_left", 4],
 			[60, "right_deck_right", 4]
-		],
-		"bpm":188
-	},
-	"tester":{
-		"level":[
-			[4, "left_analog_rotate", 12, 4],
-			[20, "right_analog_rotate", 12, 4]
 		],
 		"bpm":188
 	}
