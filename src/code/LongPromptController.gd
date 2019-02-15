@@ -4,15 +4,14 @@ var key
 var key_position
 var file
 var time
+var theta
 
 func _input(event):
 	if event.is_action_pressed(key):
-		get_node("../../Conductor").change_score(10)
-		queue_free()
+		pass
 
-func missed():
-	get_node("../../Conductor").change_score(-5)
-	queue_free()
+func finished():
+	pass
 
 func _init(keypress, key_new_position, animation_file, timeout):
 	._init()
@@ -29,4 +28,4 @@ func _ready():
 	add_child(timeout)
 	timeout.wait_time = time
 	timeout.start()
-	timeout.connect("timeout", self, "missed")
+	timeout.connect("timeout", self, "finished")

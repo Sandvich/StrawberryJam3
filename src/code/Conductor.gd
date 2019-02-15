@@ -10,6 +10,7 @@ var spawner
 var score = 0
 var scorelabel
 var scoretext = "Score: %d"
+var level = "tester"
 
 func _ready():
 	set_process(false)
@@ -20,10 +21,10 @@ func _ready():
 	file.open("res://levels.json", file.READ)
 	var output = JSON.parse(file.get_as_text())
 	if output.error == OK:
-		leveldata = output.result["easy"]["level"]
-		bpm = int(output.result["easy"]["bpm"])
+		leveldata = output.result[level]["level"]
+		bpm = int(output.result[level]["bpm"])
 	file.close()
-	print("Running level: easy")
+	print("Running level: %s" % level)
 
 func _process(delta):
 	time += delta
@@ -33,7 +34,7 @@ func _process(delta):
 	label.set_text(time_string % time_decimal)
 	while leveldata.size() > 0 and current_beat >= leveldata[0][0]:
 		var timeout_beat = leveldata[0][2]*60/bpm
-		spawner.prompt(leveldata[0][1], timeout_beat)
+		spawner.spawn(leveldata[0][1], timeout_beat, leveldata[0][3])
 		leveldata.pop_front()
 
 func start():

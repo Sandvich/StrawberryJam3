@@ -11,5 +11,12 @@
 			[60, "right_deck_right", 4]
 		],
 		"bpm":188
+	},
+	"tester":{
+		"level":[
+			[4, "left_analog_rotate", 12, 4],
+			[20, "right_analog_rotate", 12, 4]
+		],
+		"bpm":188
 	}
 }
