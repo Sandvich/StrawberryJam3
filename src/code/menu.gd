@@ -9,9 +9,11 @@ func start_level():
 	var options = {
 		"practice": optionRoot.get_node("PracticeSelect").pressed,
 		"lights_off": optionRoot.get_node("LightsSelect").pressed,
-		"level": current_level
+		"level": levels[current_level]
 	}
-	print("Options to pass: " + str(options))
+	for item in options.keys():
+		globals.set(item, options[item])
+	get_tree().change_scene("res://game.tscn")
 
 func change_level(move_by):
 	var num_levels = levels.size()

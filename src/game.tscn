@@ -3,8 +3,8 @@
 [ext_resource path="res://assets/ConnectionII.otf" type="DynamicFontData" id=1]
 [ext_resource path="res://anim/deck.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://code/Deck.gd" type="Script" id=3]
-[ext_resource path="res://assets/RaveParty.wav" type="AudioStream" id=4]
-[ext_resource path="res://code/Conductor.gd" type="Script" id=5]
+[ext_resource path="res://code/Conductor.gd" type="Script" id=4]
+[ext_resource path="res://code/Lights.gd" type="Script" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 
@@ -14,7 +14,7 @@ use_filter = false
 font_data = ExtResource( 1 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Background" type="TextureRect"]
+[node name="Background" type="TextureRect" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -101,13 +101,13 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Conductor" type="AudioStreamPlayer" parent="." index="3"]
 
-stream = ExtResource( 4 )
+stream = null
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="StartTimer" type="Timer" parent="Conductor" index="0"]
 
@@ -115,6 +115,22 @@ process_mode = 1
 wait_time = 3.0
 one_shot = true
 autostart = true
+
+[node name="Lights" type="Polygon2D" parent="." index="4"]
+
+polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 600, 0, 600 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 0.0588235 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+script = ExtResource( 5 )
 
 [connection signal="timeout" from="Conductor/StartTimer" to="Conductor" method="start" flags=6]
 
