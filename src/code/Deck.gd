@@ -4,9 +4,7 @@ var anim_file
 var valid_keys
 var promptClass
 var longPromptClass
-var longPromptControllerClass
 var key_positions
-var using_controller
 
 func _on_joy_connection_changed(device_id, connected):
 	if connected:
@@ -14,20 +12,20 @@ func _on_joy_connection_changed(device_id, connected):
 		print(name)
 		if "DualShock" in name:
 			print("Switching to playstation mapping.")
-			using_controller = true
+			longPromptClass = load("res://code/LongPromptController.gd")
 			anim_file = load("res://anim/ps.tres")
 		elif ("XInput" in name) or ("XBox" in name):
 			# Unfortunately, many devices declare themselves "XInput Device", instead of anything meaningful
 			print("Switching to xbox mapping.")
-			using_controller = true
+			longPromptClass = load("res://code/LongPromptController.gd")
 			anim_file = load("res://anim/xbox.tres")
 		else:
 			print("Unknown device, defaulting to keyboard mapping.")
-			using_controller = false
+			longPromptClass = load("res://code/LongPrompt.gd")
 			anim_file = load("res://anim/keyboard.tres")
 	else:
 		print("Keyboard")
-		using_controller = false
+		longPromptClass = load("res://code/LongPrompt.gd")
 		anim_file = load("res://anim/keyboard.tres")
 
 func _ready():
@@ -54,17 +52,12 @@ func _ready():
 	}
 	valid_keys = key_positions.keys()
 	promptClass = load("res://code/Prompt.gd")
-	longPromptClass = load("res://code/LongPrompt.gd")
-	longPromptControllerClass = load("res://code/LongPromptController.gd")
 
 func spawn(key, timeout, min_mash=null):
 	if key in valid_keys:
 		print("Spawning %s" % key)
 		if key.ends_with("rotate"):
-			if using_controller:
-				add_child(longPromptControllerClass.new(key, key_positions[key], anim_file, timeout))
-			else:
-				add_child(longPromptClass.new(key, key_positions[key], anim_file, timeout, min_mash))
+			add_child(longPromptClass.new(key, key_positions[key], anim_file, timeout))
 		else:
 			add_child(promptClass.new(key, key_positions[key], anim_file, timeout))
 	else:
