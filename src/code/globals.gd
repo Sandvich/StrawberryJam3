@@ -5,6 +5,6 @@ var lights_off
 var level
 
 func _ready():
-	practice = true
+	practice = false
 	lights_off = false
-	level = 0
+	level = "Easy: The Rave Party - Snabisch"
