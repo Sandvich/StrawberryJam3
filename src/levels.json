@@ -1,19 +1,21 @@
 {
 	"Easy: Untitled Rave Track - Fluffy":{
+		"bpm":140,
 		"file":"res://assets/ttio_1.wav",
+		"precision": 1,
 		"level":[
-			[4, "left_deck_up", 4],
-			[4, "right_analog_rotate", 28],
-			[12, "left_deck_down", 4],
-			[20, "left_deck_left", 4],
-			[28, "left_deck_right", 4],
-			[36, "right_deck_up", 4],
-			[36, "left_analog_rotate", 28],
-			[44, "right_deck_down", 4],
-			[52, "right_deck_left", 4],
-			[60, "right_deck_right", 4]
-		],
-		"bpm":140
+			[0,	"left_deck_right",	2],
+			[2,	"left_deck_left",	2],
+			[4,	"left_deck_up",	2],
+			[6,	"left_deck_left",	2],
+			[8,	"left_deck_right",	2],
+			[10,	"left_deck_left",	2],
+			[12,	"left_deck_up",	2],
+			[14,	"left_deck_left",	2],
+			[16,	"left_deck_right",	2],
+			[18,	"left_deck_left",	2],
+			[20,	"left_deck_up",	2]
+		]
 	},
 	"Hard: The Rave Party - Snabisch":{
 		"file":"res://assets/RaveParty.wav",

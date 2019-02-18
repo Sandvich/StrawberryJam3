@@ -53,12 +53,12 @@ func _ready():
 	valid_keys = key_positions.keys()
 	promptClass = load("res://code/Prompt.gd")
 
-func spawn(key, timeout):
+func spawn(key, actual):
 	if key in valid_keys:
 		print("Spawning %s" % key)
 		if key.ends_with("rotate"):
-			add_child(longPromptClass.new(key, key_positions[key], anim_file, timeout))
+			add_child(longPromptClass.new(key, key_positions[key], anim_file, actual))
 		else:
-			add_child(promptClass.new(key, key_positions[key], anim_file, timeout))
+			add_child(promptClass.new(key, key_positions[key], anim_file, actual))
 	else:
 		print("%s is not a valid prompt!" % key)

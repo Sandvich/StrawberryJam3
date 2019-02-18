@@ -6,7 +6,7 @@ The full game will feature both a practice (scored) mode, and a "live" mode wher
 ## Known Issues
 The aim is for all of these to be fixed before the end of the jam, but that might not happen.  
 * Many devices will detect as XBox controllers, despite not being them. This is unlikely to be fixable, as it is caused by limitations in XInput.
-* Rotation prompts are not yet implemented
+* Live mode currently does nothing - practice or nothing, for now!
 
 ## Attributions
 All code is written by [TTIO](https://ttio.itch.io/)
