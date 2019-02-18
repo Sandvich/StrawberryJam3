@@ -33,6 +33,7 @@ func _ready():
 		leveldata = output.result[globals.level]["level"]
 		bpm = int(output.result[globals.level]["bpm"])
 		stream = load(output.result[globals.level]["file"])
+		globals.precision = float(output.result[globals.level]["precision"])*60/bpm
 	file.close()
 	print("Running level: %s" % globals.level)
 
