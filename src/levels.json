@@ -1,6 +1,6 @@
 {
-	"Easy: The Rave Party - Snabisch":{
-		"file":"res://assets/RaveParty.wav",
+	"Easy: Untitled Rave Track - Fluffy":{
+		"file":"res://assets/ttio_1.wav",
 		"level":[
 			[4, "left_deck_up", 4],
 			[4, "right_analog_rotate", 28],
@@ -13,7 +13,7 @@
 			[52, "right_deck_left", 4],
 			[60, "right_deck_right", 4]
 		],
-		"bpm":188
+		"bpm":140
 	},
 	"Hard: The Rave Party - Snabisch":{
 		"file":"res://assets/RaveParty.wav",
