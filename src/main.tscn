@@ -1,12 +1,13 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://code/menu.gd" type="Script" id=1]
 [ext_resource path="res://assets/arrow_left_neutral.png" type="Texture" id=2]
 [ext_resource path="res://assets/arrow_left.png" type="Texture" id=3]
 [ext_resource path="res://assets/arrow_right_neutral.png" type="Texture" id=4]
 [ext_resource path="res://assets/arrow_right.png" type="Texture" id=5]
+[ext_resource path="res://code/PracticeSelect.gd" type="Script" id=6]
 
-[node name="Background" type="TextureRect"]
+[node name="Background" type="TextureRect" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -48,8 +49,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 412.0
-margin_right = 611.0
+margin_left = 404.0
+margin_right = 619.0
 margin_bottom = 148.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -65,7 +66,7 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 199.0
+margin_right = 215.0
 margin_bottom = 36.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -81,8 +82,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 21.0
-margin_right = 57.0
+margin_left = 29.0
+margin_right = 65.0
 margin_bottom = 36.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -105,9 +106,9 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 61.0
+margin_left = 69.0
 margin_top = 11.0
-margin_right = 137.0
+margin_right = 145.0
 margin_bottom = 25.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -126,8 +127,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 141.0
-margin_right = 177.0
+margin_left = 149.0
+margin_right = 185.0
 margin_bottom = 36.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -151,7 +152,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 40.0
-margin_right = 199.0
+margin_right = 215.0
 margin_bottom = 80.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -169,7 +170,31 @@ group = null
 text = "Practice Mode"
 flat = false
 align = 2
+script = ExtResource( 6 )
 _sections_unfolded = [ "Hint" ]
+
+[node name="LiveDisabled" type="ConfirmationDialog" parent="CenterContainer/VBoxContainer/PracticeSelect" index="0"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 200.0
+margin_bottom = 70.0
+rect_min_size = Vector2( 200, 70 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+popup_exclusive = true
+window_title = "Please Confirm..."
+resizable = false
+dialog_text = "Live mode is currently not available!"
+dialog_hide_on_ok = true
+_sections_unfolded = [ "Dialog", "Popup" ]
 
 [node name="LightsSelect" type="CheckButton" parent="CenterContainer/VBoxContainer" index="2"]
 
@@ -178,7 +203,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 84.0
-margin_right = 199.0
+margin_right = 215.0
 margin_bottom = 124.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -192,7 +217,7 @@ toggle_mode = true
 enabled_focus_mode = 2
 shortcut = null
 group = null
-text = "Turn off the Lights!"
+text = "Photosensitive Mode"
 flat = false
 align = 2
 _sections_unfolded = [ "Hint" ]
@@ -204,7 +229,7 @@ anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 128.0
-margin_right = 199.0
+margin_right = 215.0
 margin_bottom = 148.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
@@ -225,6 +250,10 @@ _sections_unfolded = [ "Rect" ]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LevelSelect/Prev" to="." method="_on_Prev_pressed"]
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/LevelSelect/Next" to="." method="_on_Next_pressed"]
+
+[connection signal="toggled" from="CenterContainer/VBoxContainer/PracticeSelect" to="CenterContainer/VBoxContainer/PracticeSelect" method="_on_PracticeSelect_toggled"]
+
+[connection signal="popup_hide" from="CenterContainer/VBoxContainer/PracticeSelect/LiveDisabled" to="CenterContainer/VBoxContainer/PracticeSelect" method="_on_LiveDisabled_popup_hide"]
 
 [connection signal="pressed" from="CenterContainer/VBoxContainer/PlayButton" to="." method="start_level"]
 

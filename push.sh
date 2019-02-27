@@ -2,8 +2,11 @@
 # Edit variables below to change your settings.
 # Remember that you need a file called buildnumber in your build directory, with a single number inside in the form x.y.z
 
-# The directory to which you export your project. You should have osx, linux and windows folders under this directory, each containing the relevant build (assets exported as data.zip)
-BUILD_DIR=.
+# The directory where your source is saved
+SOURCE_DIR=$(pwd)"/src"
+
+# The directory to which you  want to export your project. You should have osx, linux and windows executables under this directory, each containing the relevant build (assets exported as data.pck)
+BUILD_DIR=$(pwd)
 
 # The name of the 'main' file for the project. Eg. if the project produces files called FursonaCreator.app, FursonaCreator.exe and FursonaCreator.x86_64, this should be set to FursonaCreator
 FILENAME="WetRave"
@@ -11,14 +14,24 @@ FILENAME="WetRave"
 # The name of your itch.io page, in butler terms. For example, fursona creator is on ttio.itch.io/fursona-creator, so the page name in butler terms is ttio/fursona-creator.
 PROJECT="ttio/wet-rave"
 
-cd $BUILD_DIR
+# Any additional files to copy - seperate multiple files with a space
+FILES=$SOURCE_DIR"/levels.json"
 
-echo "Move executables to their directories"
-mv $FILENAME.x86_64 linux/
-cp $FILENAME.pck linux/
-mv $FILENAME.zip osx/
-mv $FILENAME.exe windows/
-mv $FILENAME.pck windows/
+cd $SOURCE_DIR
+godot --export "Linux/X11" $BUILD_DIR"/linux/"$FILENAME".x86_64"
+godot --export "Mac OSX" $BUILD_DIR"/osx/"$FILENAME".zip"
+godot --export "Windows Desktop" $BUILD_DIR"/windows/"$FILENAME".exe"
+
+cd $BUILD_DIR
+echo "Previous build number is "$(cat buildnumber)
+echo "Please enter the build number, followed by the return key:"
+read BUILD_NUM
+echo $BUILD_NUM > buildnumber
+
+echo "Move extra files to their directories"
+cp -t linux/ $FILES
+cp -t osx/ $FILES
+cp -t windows/ $FILES
 
 echo "Set Linux to executable"
 chmod +x linux/$FILENAME.x86_64
