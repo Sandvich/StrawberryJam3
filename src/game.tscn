@@ -1,17 +1,19 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://assets/ConnectionII.otf" type="DynamicFontData" id=1]
-[ext_resource path="res://anim/deck.tres" type="SpriteFrames" id=2]
-[ext_resource path="res://code/Deck.gd" type="Script" id=3]
-[ext_resource path="res://code/Conductor.gd" type="Script" id=4]
-[ext_resource path="res://code/Lights.gd" type="Script" id=5]
+[ext_resource path="res://assets/bg.png" type="Texture" id=1]
+[ext_resource path="res://assets/ConnectionII.otf" type="DynamicFontData" id=2]
+[ext_resource path="res://anim/deck.tres" type="SpriteFrames" id=3]
+[ext_resource path="res://code/Deck.gd" type="Script" id=4]
+[ext_resource path="res://code/Conductor.gd" type="Script" id=5]
+[ext_resource path="res://code/Lights.gd" type="Script" id=6]
+[ext_resource path="res://assets/ending.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 36
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 1 )
+font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="Background" type="TextureRect" index="0"]
@@ -28,6 +30,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
+texture = ExtResource( 1 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
@@ -37,10 +40,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 452.0
-margin_top = 284.0
-margin_right = 580.0
-margin_bottom = 332.0
+margin_left = 15.0
+margin_top = 25.0
+margin_right = 143.0
+margin_bottom = 73.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
 mouse_filter = 0
@@ -48,6 +51,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -59,6 +63,7 @@ scroll_active = true
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
+_sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
 [node name="score" type="RichTextLabel" parent="." index="1"]
 
@@ -66,10 +71,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 833.0
-margin_top = 6.0
-margin_right = 1022.0
-margin_bottom = 56.0
+margin_left = 830.0
+margin_top = 25.0
+margin_right = 1019.0
+margin_bottom = 75.0
 grow_horizontal = 0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = true
@@ -78,6 +83,7 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
 bbcode_enabled = false
 bbcode_text = ""
 visible_characters = -1
@@ -89,14 +95,14 @@ scroll_active = false
 scroll_following = false
 selection_enabled = false
 override_selected_font_color = false
-_sections_unfolded = [ "Grow Direction", "Rect" ]
+_sections_unfolded = [ "Grow Direction", "Rect", "custom_colors" ]
 
 [node name="Deck" type="AnimatedSprite" parent="." index="2"]
 
-position = Vector2( 512, 470 )
-frames = ExtResource( 2 )
+position = Vector2( 499, 323 )
+frames = ExtResource( 3 )
 animation = "default"
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Conductor" type="AudioStreamPlayer" parent="." index="3"]
@@ -107,7 +113,7 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="StartTimer" type="Timer" parent="Conductor" index="0"]
 
@@ -130,7 +136,59 @@ texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
-script = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="end_screen" type="TextureRect" parent="." index="5"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 7 )
+stretch_mode = 0
+
+[node name="final_score" type="RichTextLabel" parent="end_screen" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 342.0
+margin_top = 466.0
+margin_right = 688.0
+margin_bottom = 516.0
+grow_horizontal = 0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+bbcode_enabled = false
+bbcode_text = ""
+visible_characters = -1
+percent_visible = 1.0
+meta_underlined = true
+tab_size = 4
+text = "Your Score: %d"
+scroll_active = false
+scroll_following = false
+selection_enabled = false
+override_selected_font_color = false
+_sections_unfolded = [ "Grow Direction", "Rect", "custom_colors" ]
+
+[connection signal="finished" from="Conductor" to="Conductor" method="_on_Conductor_finished"]
 
 [connection signal="timeout" from="Conductor/StartTimer" to="Conductor" method="start" flags=6]
 

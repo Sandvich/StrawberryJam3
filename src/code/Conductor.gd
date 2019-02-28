@@ -13,6 +13,11 @@ var scoretext = "Score: %d"
 var last_beat = 0
 var lights
 
+func _on_Conductor_finished():
+	get_parent().get_node("end_screen").show()
+	var scorelabel = get_parent().get_node("end_screen/final_score")
+	scorelabel.set("text", scorelabel.text % score)
+
 func _ready():
 	# Basics
 	set_process(false)
@@ -38,6 +43,9 @@ func _ready():
 	print("Running level: %s" % globals.level)
 
 func _process(delta):
+	if Input.is_action_pressed("ui_cancel"):
+		get_tree().change_scene("res://main.tscn")
+
 	# Timing Stuff
 	time += delta
 	var light_beat = floor((bpm*time)/15)
@@ -56,6 +64,9 @@ func _process(delta):
 		var timeout_beat = leveldata[0][2]*60/bpm
 		spawner.spawn(leveldata[0][1], timeout_beat)
 		leveldata.pop_front()
+	
+	if current_beat == 60 and not get_parent().get_node("end_screen").is_visible_in_tree():
+		_on_Conductor_finished()
 
 func start():
 	set_process(true)
