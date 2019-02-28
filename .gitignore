@@ -4,6 +4,9 @@
 *.x86_64
 *.zip
 
+# Stuff we don't need
+screenshots/
+
 # Godot-specific ignores
 .import/
 export.cfg

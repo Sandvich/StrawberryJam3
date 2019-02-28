@@ -64,9 +64,6 @@ func _process(delta):
 		var timeout_beat = leveldata[0][2]*60/bpm
 		spawner.spawn(leveldata[0][1], timeout_beat)
 		leveldata.pop_front()
-	
-	if current_beat == 60 and not get_parent().get_node("end_screen").is_visible_in_tree():
-		_on_Conductor_finished()
 
 func start():
 	set_process(true)

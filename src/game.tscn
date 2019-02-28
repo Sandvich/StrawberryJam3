@@ -16,7 +16,7 @@ use_filter = false
 font_data = ExtResource( 2 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[node name="Background" type="TextureRect" index="0"]
+[node name="parent" type="TextureRect" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -30,11 +30,27 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 1 )
 stretch_mode = 0
 _sections_unfolded = [ "Rect" ]
 
-[node name="time" type="RichTextLabel" parent="." index="0"]
+[node name="background" type="TextureRect" parent="." index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 40.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 1 )
+stretch_mode = 0
+
+[node name="time" type="RichTextLabel" parent="." index="1"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -65,7 +81,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="score" type="RichTextLabel" parent="." index="1"]
+[node name="score" type="RichTextLabel" parent="." index="2"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -97,7 +113,7 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Grow Direction", "Rect", "custom_colors" ]
 
-[node name="Deck" type="AnimatedSprite" parent="." index="2"]
+[node name="Deck" type="AnimatedSprite" parent="." index="3"]
 
 position = Vector2( 499, 323 )
 frames = ExtResource( 3 )
@@ -105,7 +121,7 @@ animation = "default"
 script = ExtResource( 4 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Conductor" type="AudioStreamPlayer" parent="." index="3"]
+[node name="Conductor" type="AudioStreamPlayer" parent="." index="4"]
 
 stream = null
 volume_db = 0.0
@@ -122,7 +138,7 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="Lights" type="Polygon2D" parent="." index="4"]
+[node name="Lights" type="Polygon2D" parent="." index="5"]
 
 polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 600, 0, 600 )
 uv = PoolVector2Array(  )
@@ -138,7 +154,7 @@ invert_enable = false
 invert_border = 100.0
 script = ExtResource( 6 )
 
-[node name="end_screen" type="TextureRect" parent="." index="5"]
+[node name="end_screen" type="TextureRect" parent="." index="6"]
 
 visible = false
 anchor_left = 0.0
