@@ -9,7 +9,7 @@ func start_level():
 	var options = {
 		"practice": optionRoot.get_node("PracticeSelect").pressed,
 		"lights_off": optionRoot.get_node("LightsSelect").pressed,
-		"level": levels[current_level]
+		"level": current_level
 	}
 	for item in options.keys():
 		globals.set(item, options[item])
@@ -36,12 +36,9 @@ func _input(event):
 
 func _ready():
 	# Parse the levels we have to choose from
-	var file = File.new()
-	file.open("res://levels.json", file.READ)
-	var output = JSON.parse(file.get_as_text())
-	if output.error == OK:
-		levels = output.result.keys()
-	file.close()
+	levels = []
+	for entry in globals.levels:
+		levels.append("%s: %s by %s" % [entry.get("difficulty"), entry.get("songname"), entry.get("artist")])
 	print("Available levels: " + str(levels))
 
 	# Set the label so that the correct level is shown on-screen

@@ -12,6 +12,7 @@ var scorelabel
 var scoretext = "Score: %d"
 var last_beat = 0
 var lights
+var crowd
 
 func _on_Conductor_finished():
 	get_parent().get_node("end_screen").show()
@@ -19,27 +20,29 @@ func _on_Conductor_finished():
 	scorelabel.set("text", scorelabel.text % score)
 
 func _ready():
+	# Load level data
+	leveldata = globals.get_level(globals.level).get("code").duplicate()
+	bpm = globals.get_level(globals.level).get("bpm")
+	stream = load(globals.get_level(globals.level).get("file"))
+	globals.precision = float(globals.get_level(globals.level).get("precision")*60/bpm)
+	#print(globals.get_level(globals.level).get("code"))
+
 	# Basics
 	set_process(false)
 	label = get_parent().get_node("time")
 	scorelabel = get_parent().get_node("score")
 	spawner = get_parent().get_node("Deck")
 	lights = get_parent().get_node("Lights")
-	if globals.lights_off or globals.practice:
+	crowd = get_parent().get_node("crowd")
+	if globals.lights_off:
+		lights.hide()
+	if globals.practice:
+		crowd.hide()
 		lights.hide()
 	else:
-		lights.show()
+		for member in crowd.get_children():
+			member.frames.set_animation_speed("default", bpm/15)
 
-	# Load JSON of our level
-	var file = File.new()
-	file.open("res://levels.json", file.READ)
-	var output = JSON.parse(file.get_as_text())
-	if output.error == OK:
-		leveldata = output.result[globals.level]["level"]
-		bpm = int(output.result[globals.level]["bpm"])
-		stream = load(output.result[globals.level]["file"])
-		globals.precision = float(output.result[globals.level]["precision"])*60/bpm
-	file.close()
 	print("Running level: %s" % globals.level)
 
 func _process(delta):
@@ -49,7 +52,7 @@ func _process(delta):
 	# Timing Stuff
 	time += delta
 	var light_beat = floor((bpm*time)/15)
-	var current_beat = floor(light_beat/4)
+	var current_beat = floor((bpm*time)/60)
 	time_decimal[0] = floor(time/60)
 	time_decimal[1] = floor(fmod(time, 60))
 	label.set_text(time_string % time_decimal)
@@ -69,6 +72,9 @@ func start():
 	set_process(true)
 	spawner.play()
 	play(0)
+	if not globals.practice:
+		for person in crowd.get_children():
+			person.play()
 
 func change_score(scoredelta):
 	score += scoredelta

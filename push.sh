@@ -14,9 +14,6 @@ FILENAME="WetRave"
 # The name of your itch.io page, in butler terms. For example, fursona creator is on ttio.itch.io/fursona-creator, so the page name in butler terms is ttio/fursona-creator.
 PROJECT="ttio/wet-rave"
 
-# Any additional files to copy - seperate multiple files with a space
-FILES=$SOURCE_DIR"/levels.json"
-
 cd $SOURCE_DIR
 godot --export "Linux/X11" $BUILD_DIR"/linux/"$FILENAME".x86_64"
 godot --export "Mac OSX" $BUILD_DIR"/osx/"$FILENAME".zip"
@@ -27,11 +24,6 @@ echo "Previous build number is "$(cat buildnumber)
 echo "Please enter the build number, followed by the return key:"
 read BUILD_NUM
 echo $BUILD_NUM > buildnumber
-
-echo "Move extra files to their directories"
-cp -t linux/ $FILES
-cp -t osx/ $FILES
-cp -t windows/ $FILES
 
 echo "Set Linux to executable"
 chmod +x linux/$FILENAME.x86_64

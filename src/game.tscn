@@ -1,19 +1,21 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://assets/bg.png" type="Texture" id=1]
-[ext_resource path="res://assets/ConnectionII.otf" type="DynamicFontData" id=2]
-[ext_resource path="res://anim/deck.tres" type="SpriteFrames" id=3]
-[ext_resource path="res://code/Deck.gd" type="Script" id=4]
-[ext_resource path="res://code/Conductor.gd" type="Script" id=5]
-[ext_resource path="res://code/Lights.gd" type="Script" id=6]
-[ext_resource path="res://assets/ending.png" type="Texture" id=7]
+[ext_resource path="res://anim/crowd.tres" type="SpriteFrames" id=2]
+[ext_resource path="res://assets/table.png" type="Texture" id=3]
+[ext_resource path="res://assets/ConnectionII.otf" type="DynamicFontData" id=4]
+[ext_resource path="res://anim/deck.tres" type="SpriteFrames" id=5]
+[ext_resource path="res://code/Deck.gd" type="Script" id=6]
+[ext_resource path="res://code/Conductor.gd" type="Script" id=7]
+[ext_resource path="res://code/Lights.gd" type="Script" id=8]
+[ext_resource path="res://assets/ending.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 
 size = 36
 use_mipmaps = false
 use_filter = false
-font_data = ExtResource( 2 )
+font_data = ExtResource( 4 )
 _sections_unfolded = [ "Font", "Settings" ]
 
 [node name="parent" type="TextureRect" index="0"]
@@ -39,8 +41,8 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 1024.0
+margin_bottom = 600.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -50,7 +52,95 @@ size_flags_vertical = 1
 texture = ExtResource( 1 )
 stretch_mode = 0
 
-[node name="time" type="RichTextLabel" parent="." index="1"]
+[node name="crowd" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+
+[node name="crowd1" type="AnimatedSprite" parent="crowd" index="0"]
+
+position = Vector2( 224.998, 223.998 )
+frames = ExtResource( 2 )
+animation = "default"
+frame = 1
+
+[node name="crowd2" type="AnimatedSprite" parent="crowd" index="1"]
+
+position = Vector2( 538.994, 92.9991 )
+scale = Vector2( 0.8, 0.8 )
+frames = ExtResource( 2 )
+animation = "default"
+_sections_unfolded = [ "Transform" ]
+
+[node name="crowd3" type="AnimatedSprite" parent="crowd" index="2"]
+
+position = Vector2( 388.996, 105.999 )
+scale = Vector2( 0.8, 0.8 )
+frames = ExtResource( 2 )
+animation = "default"
+frame = 2
+_sections_unfolded = [ "Transform" ]
+
+[node name="crowd4" type="AnimatedSprite" parent="crowd" index="3"]
+
+position = Vector2( 745.993, 126.999 )
+scale = Vector2( 0.8, 0.8 )
+frames = ExtResource( 2 )
+animation = "default"
+frame = 2
+_sections_unfolded = [ "Transform" ]
+
+[node name="crowd5" type="AnimatedSprite" parent="crowd" index="4"]
+
+position = Vector2( 374.996, 237.998 )
+frames = ExtResource( 2 )
+animation = "default"
+frame = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="crowd6" type="AnimatedSprite" parent="crowd" index="5"]
+
+position = Vector2( 606.994, 159.998 )
+scale = Vector2( 0.9, 0.9 )
+frames = ExtResource( 2 )
+animation = "default"
+frame = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="crowd7" type="AnimatedSprite" parent="crowd" index="6"]
+
+position = Vector2( 488.995, 195.998 )
+scale = Vector2( 0.9, 0.9 )
+frames = ExtResource( 2 )
+animation = "default"
+frame = 1
+_sections_unfolded = [ "Transform" ]
+
+[node name="crowd8" type="AnimatedSprite" parent="crowd" index="7"]
+
+position = Vector2( 802.992, 263.997 )
+frames = ExtResource( 2 )
+animation = "default"
+frame = 2
+_sections_unfolded = [ "Transform" ]
+
+[node name="table" type="TextureRect" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 600.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+texture = ExtResource( 3 )
+stretch_mode = 0
+
+[node name="time" type="RichTextLabel" parent="." index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -81,15 +171,15 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Rect", "custom_colors", "custom_fonts" ]
 
-[node name="score" type="RichTextLabel" parent="." index="2"]
+[node name="score" type="RichTextLabel" parent="." index="4"]
 
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 830.0
+margin_left = 800.0
 margin_top = 25.0
-margin_right = 1019.0
+margin_right = 1015.0
 margin_bottom = 75.0
 grow_horizontal = 0
 rect_pivot_offset = Vector2( 0, 0 )
@@ -113,15 +203,15 @@ selection_enabled = false
 override_selected_font_color = false
 _sections_unfolded = [ "Grow Direction", "Rect", "custom_colors" ]
 
-[node name="Deck" type="AnimatedSprite" parent="." index="3"]
+[node name="Deck" type="AnimatedSprite" parent="." index="5"]
 
 position = Vector2( 499, 323 )
-frames = ExtResource( 3 )
+frames = ExtResource( 5 )
 animation = "default"
-script = ExtResource( 4 )
+script = ExtResource( 6 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
-[node name="Conductor" type="AudioStreamPlayer" parent="." index="4"]
+[node name="Conductor" type="AudioStreamPlayer" parent="." index="6"]
 
 stream = null
 volume_db = 0.0
@@ -129,7 +219,7 @@ pitch_scale = 1.0
 autoplay = false
 mix_target = 0
 bus = "Master"
-script = ExtResource( 5 )
+script = ExtResource( 7 )
 
 [node name="StartTimer" type="Timer" parent="Conductor" index="0"]
 
@@ -138,7 +228,7 @@ wait_time = 3.0
 one_shot = true
 autostart = true
 
-[node name="Lights" type="Polygon2D" parent="." index="5"]
+[node name="Lights" type="Polygon2D" parent="." index="7"]
 
 polygon = PoolVector2Array( 0, 0, 1024, 0, 1024, 600, 0, 600 )
 uv = PoolVector2Array(  )
@@ -152,9 +242,9 @@ texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
-script = ExtResource( 6 )
+script = ExtResource( 8 )
 
-[node name="end_screen" type="TextureRect" parent="." index="6"]
+[node name="end_screen" type="TextureRect" parent="." index="8"]
 
 visible = false
 anchor_left = 0.0
@@ -169,7 +259,7 @@ mouse_filter = 1
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
-texture = ExtResource( 7 )
+texture = ExtResource( 9 )
 stretch_mode = 0
 
 [node name="final_score" type="RichTextLabel" parent="end_screen" index="0"]
