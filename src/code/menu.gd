@@ -51,3 +51,6 @@ func _on_Prev_pressed():
 
 func _on_Next_pressed():
 	change_level(1)
+
+func _on_HelpButton_pressed():
+	get_tree().change_scene("res://help.tscn")

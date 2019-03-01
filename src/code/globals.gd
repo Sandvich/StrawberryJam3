@@ -3,7 +3,7 @@ extends Node
 var practice
 var lights_off
 var level
-var precision = null
+var precision = 1
 var levels = []
 var levelClass
 
